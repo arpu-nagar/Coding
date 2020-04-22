@@ -11,51 +11,32 @@ int main()
     {
         int n;
         cin >> n;
-        int count = 0;
-        vector<vector<int>> arr;
-        int brr[n] = {0};
-
-        for (int p = 2; p <= n; p++)
+        int count = round(n / 2);
+        if(n==1)
+        cout << "1" << endl;
+        else
+        cout << count << endl;
+        if (n % 2 == 0)
         {
-            vector<int> x;
-
-            // if (p == 2)
-            //     x.push_back(1);
-
-            for (int j = p; j <= n; j += p)
+            for (int i = 0; i < n; i += 2)
             {
-                if (brr[j - 1] == 0)
+                cout << "2 " << i + 1 << " " << i + 2;
+                cout << "\n";
+            }
+        }
+        else
+        {
+            if (n == 1)
+                cout << "1 1" << endl;
+            else
+            {
+                cout << "3 1 2 3" << endl;
+                for (int i = 3; i < n; i += 2)
                 {
-                    brr[j - 1] = 1;
-                    x.push_back(j);
+                    cout << "2 " << i + 1 << " " << i + 2;
+                    cout << "\n";
                 }
             }
-            if (!x.empty())
-                arr.push_back(x);
         }
-        vector<vector<int>> crr;
-        
-        for (int i = 0; i < arr[0].size(); i++)
-        {
-            vector<int> x;
-            crr.push_back(x);
-        }
-        for(int j = 0;j<arr.size();j++)
-        for (int i = 0; i < arr[j].size(); i++)
-        {
-            if(j==0 && i == 0)
-            crr[i].push_back(1);
-            crr[i].push_back(arr[j][i]);
-        }
-        cout << crr.size() << endl;
-         for (int i = 0; i < crr.size(); i++) { 
-        for (int j = 0; j < crr[i].size(); j++) 
-        {   if(j==0)
-            cout << crr[i].size() << " ";
-            cout << crr[i][j] << " ";} 
-        cout << "\n"; 
-    } 
-
     }
-    return 0;
 }
