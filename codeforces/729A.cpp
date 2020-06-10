@@ -15,22 +15,29 @@ typedef vector<string> vs;
     for (auto &it : v) \
         cin >> it;
 #define MOD 1000000007
-
+#define lol(x) cout << #x << " " << x << endl;
 void solve()
 {
-    int n;
+    ll n;
     cin >> n;
+    ll x,y;
+    cin >> x >> y;
+    ll w = (min(x,y) - 1) + max(x,y) - min(x,y);
+    ll b = (min(n-x+1,n- y+1) - 1) + max(n-x+1, n-y+1) - min(n-x+1, n-y+1);
+    if(w > b){
+        cout << "Black"<< endl;
+    }
+    else
+    {
+        cout << "white" << endl;
+    }
+    
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
-    {
         solve();
-    }
     return 0;
 }

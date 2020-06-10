@@ -16,11 +16,6 @@ typedef vector<string> vs;
         cin >> it;
 #define MOD 1000000007
 
-void solve()
-{
-    int n;
-    cin >> n;
-}
 
 int main()
 {
@@ -28,9 +23,13 @@ int main()
     cin.tie(NULL);
     int t;
     cin >> t;
+    set<string> s;
     while (t--)
     {
-        solve();
+        string x,y;
+        cin >> x >> y;
+        s.insert(x+" "+y+"");
     }
+    cout << s.size() << endl;
     return 0;
 }

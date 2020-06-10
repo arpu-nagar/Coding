@@ -18,8 +18,12 @@ typedef vector<string> vs;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    vi a(3), b(3);
+    inv(a);
+    inv(b);
+    
+    
+    
 }
 
 int main()
