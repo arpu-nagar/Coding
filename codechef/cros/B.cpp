@@ -1,4 +1,3 @@
-
 /**
  *  Hi, I'm Arpan.
  *  Hardwork beats talent if talents doesn't work hard, friend me if you want to. ✌.|•͡˘‿•͡˘|.✌
@@ -19,40 +18,27 @@ typedef vector<string> vs;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    int arr[n][n] = {0};
-
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cin >> arr[i][j];
-        }
+    int l,r;
+    cin >> l >> r;
+    int ans = 0;
+    for(int i=l;i<r;i++){
+		if(i==8 || i == 2 || i ==20 || i==14 ){
+			ans++;
+		}
+		else{
+			ans+=2;
+		}
     }
-    if(n == 1){
-        cout << arr[0][0]<< endl;
-        return;
-    }
-    ll sum = 0;
-    for(int i=0;i<n;i++){
-        int max1 = 0;int max2 = 0;
-        for(int j= 0;j<n;j++){
-            if(i != j){
-                max1|=arr[i][j];
-                max2|=arr[j][i];
-            }
-        }
-        sum+= (max1|max2);
-    }
-    cout << sum << endl;
+    cout << ans << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t = 1;
-    while(t--)
+    int t;
+    cin >> t;
+    while (t--)
         solve();
-
     return 0;
 }

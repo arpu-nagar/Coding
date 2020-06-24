@@ -1,4 +1,3 @@
-
 /**
  *  Hi, I'm Arpan.
  *  Hardwork beats talent if talents doesn't work hard, friend me if you want to. ✌.|•͡˘‿•͡˘|.✌
@@ -19,40 +18,47 @@ typedef vector<string> vs;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    int arr[n][n] = {0};
+    int n,m;
+    cin >> n >> m;
+    vi a(n);
+    inv(a);
+    int cb,ca;
+    cb=ca=0;
+	set<int> s,s1;
+    for(int i=0;i<n;i++){
 
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cin >> arr[i][j];
-        }
+		if(a[i] < m) {
+			if(s.find(a[i]) == s.end()){
+				s.insert(a[i]);
+			}
+			cb++;
+		}
+		else if(a[i] > m)
+		{
+			if(s1.find(a[i]) == s1.end()){
+				s1.insert(a[i]);
+			}
+			ca++;
+		}
     }
-    if(n == 1){
-        cout << arr[0][0]<< endl;
-        return;
+
+    if(s.size() == m-1){
+		cout << cb + ca << endl;
     }
-    ll sum = 0;
-    for(int i=0;i<n;i++){
-        int max1 = 0;int max2 = 0;
-        for(int j= 0;j<n;j++){
-            if(i != j){
-                max1|=arr[i][j];
-                max2|=arr[j][i];
-            }
-        }
-        sum+= (max1|max2);
+    else{
+		cout <<"-1\n";
     }
-    cout << sum << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t = 1;
-    while(t--)
+    int t;
+    cin >> t;
+    while (t--)
+    {
         solve();
-
+    }
     return 0;
 }
