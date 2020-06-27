@@ -6,21 +6,14 @@ using ll = long long int;
 int main(){
 	int n;
 	cin >> n;
-	vector<int> a(n);
-
-	for(auto &i : a) cin >> i;
-	vector<ll> arr(n);
-	arr[0] = a[0];
-	for(int i=1;i<n;i++){
-	arr[i]+=arr[i-1]+a[i];
+	set<int> s;
+	for(int i =0;i<n;i++){
+		int x;
+		cin >> x;
+		if(x != 0){
+			s.insert(x);
+		}
 	}
-	int m;
-	cin >> m;
-	while(m--){
-	ll x;
-	cin >> x;
-	auto y = lower_bound(arr,arr+n,x);
-	cout << y << endl;
-	}
+	cout << s.size();
 }
 
