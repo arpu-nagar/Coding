@@ -5,6 +5,7 @@
         "ostream": "cpp",
         "string_view": "cpp",
         "regex": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "*.tcc": "cpp"
     }
 }

@@ -1,6 +1,6 @@
 /**
  *  Hi, I'm Arpan.
- * 
+ *
 */
 
 #include <bits/stdc++.h>
@@ -32,44 +32,54 @@ ll modPower(ll num,ll r) {
 		return (ans*ans)%MOD;
 	} return (((ans*ans)%MOD)*num)%MOD;
 }
- 
-ll nCr(ll n, ll r) { 
-    ll res = 1; 
+
+ll nCr(ll n, ll r) {
+    ll res = 1;
     if (r > n - r) {
-        r = n - r; 
+        r = n - r;
     }
-    for(int i=0;i<r;i++) { 
-        res *= (n - i); 
-        res /= (i + 1); 
-    } 
-    return res; 
+    for(int i=0;i<r;i++) {
+        res *= (n - i);
+        res /= (i + 1);
+    }
+    return res;
 }
 
 /*******************************************/
 
 void solve()
 {
-    int n;
-	cin >> n;
-	vi a(n);
-	inv(a);
-	vi ne,p;
-	int z = 0;
-	for(auto x:a){
-		if(x < 0) ne.emplace_back(x);
-		else if(x >0) p.emplace_back(x);
-		else z++;
-	}
-	cout << 1 << " " << ne[0] << endl;	
-	cout << p.size()+ne.size()-1 << " ";
-	for(int i=1;i<ne.size();i++)cout << ne[i] << " ";
-	for(auto x:p)cout << x<< " ";
-	cout << endl;
-	cout << z << " ";
-	for(int i=0;i<z;i++){
-		cout << 0 << " ";
-	}
-	cout << endl;
+    ll s,n;
+    cin >> s >> n;
+    if(s == 1){
+		cout << 1 << endl;
+		return;
+    }
+
+    if( s < n){
+		if(s%2 == 0){
+			cout << 1 << endl;
+		}
+		else cout << 2 << endl;
+    }
+	else if(s >= n){
+		ll x = s/n;
+		ll r = s%n;
+		if(r == 0){
+			cout << x << endl;
+		}
+		else{
+			if(r%2 == 0){
+				cout << x+1 << endl;
+			}
+			else if(r%2 == 1 && r == 1){
+				cout << x+1 << endl;
+			}
+			else{
+				cout << x+2	 << endl;
+			}
+		}
+    }
 }
 
 int main()
@@ -77,7 +87,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t = 1;
-    // cin >> t;
+     cin >> t;
     while (t--)
         solve();
     return 0;

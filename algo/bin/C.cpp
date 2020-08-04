@@ -1,19 +1,17 @@
-	#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define mod 1e9;
-using ll = long long int;
 
 int main(){
-	int n;
-	cin >> n;
-	set<int> s;
-	for(int i =0;i<n;i++){
-		int x;
-		cin >> x;
-		if(x != 0){
-			s.insert(x);
-		}
+int t = 1;
+cin >> t;
+while(t--){
+	int n,k;
+	cin >> n >> k;
+	if(n >= 6 && n%k == 0 && n != k){
+		cout << "YES" << endl;
 	}
-	cout << s.size();
-}
+	else cout << "NO" << endl;
 
+}
+return 0;
+}

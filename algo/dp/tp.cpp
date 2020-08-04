@@ -1,43 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
-int minOperations(int x, int y, int p, int q) 
-{ 
-  
+const int MAX = 1e9;
+//int T[100][100];
+int main(){
+    int eggs=2,floors=4;
+    vector<vector<int> > T(eggs+1,vector<int>(floors+1));
+        int c =0;
+        for(int i=0; i <= floors; i++){
+            T[1][i] = i;
+        }
 
-    if (y % x != 0) 
-        return -1; 
-  
-    int d = y / x; 
-  
+        for(int e = 2; e <= eggs; e++){
+            for(int f = 1; f <=floors; f++){
+                T[e][f] = MAX;
+                for(int k = 1; k <=f ; k++){
+                    c = 1 + max(T[e-1][k-1], T[e][f-k]);
+                    if(c < T[e][f]){
+                        T[e][f] = c;
+                    }
+                }
+            }
+        }
 
-    int a = 0; 
-  
+for(int i=1;i<=eggs;i++){
+    for(int j=1;j<=floors;j++) cout << T[i][j] << " ";
 
-    while (d % p == 0) { 
-        d /= p; 
-        a++; 
-    } 
+    cout << endl;
+}
 
-    int b = 0; 
-  
-    while (d % q == 0) { 
-        d /= q; 
-        b++; 
-    } 
-  
-    if (d != 1) 
-        return -1; 
-  
-    return (a + b); 
-} 
-  
-// Driver code 
-int main() 
-{ 
-    int x,y;
-    cin >> x >> y;
-  
-    cout << minOperations(x, y, 2, 3)<< endl; 
-  
-    return 0; 
-} 
+cout << T[eggs][floors] << endl;
+}
