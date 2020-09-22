@@ -3,20 +3,13 @@ using namespace std;
 using ll = long long int;
 
 void solve(){
-    int n;
-    cin >> n;
-    ll arr[n+1]={0};
-    arr[1] = 0;
-    ll ans = 0;
-    ll a = 1;
-    for(int i=3;i<=n;i+=2){
-        arr[i] = a*(2*i +2*(i-2));
-        a++;
-    }
-    for(int i=1;i<=n;i+=2){
-        ans+=arr[i];
-    }
-    cout << ans << endl;
+    string s;
+	cin >> s;
+	for(int i=0;i<s.size();i++){
+		int p = s[i]-'0';
+		cout << p-2;
+	}
+	cout << endl;
 }
 
 int main()

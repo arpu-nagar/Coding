@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long int;
+char g[1002][1002];
+int n,m;
+vector<pair<int,vector<char>>> fin;
+void dfs(int i,int j,vector<char> ans, char ch,vector<vector<int>> vis){
+	if(i>-1 && j >-1 && i<n && j <m){
+		if(vis[i][j] == 1) return;
+		vis[i][j] = 1;
+		if(g[i][j] == '#') return;
+		ans.push_back(ch);
+		if(g[i][j] == 'B'){
+			fin.push_back({ans.size(),ans});
+			return;	
+		}
+		dfs(i + 1, j, ans, 'D',vis);
+    	dfs(i, j + 1, ans, 'R',vis);
+    	dfs(i, j - 1, ans, 'L',vis);
+    	dfs(i - 1, j, ans, 'U',vis);
+
+	}
+	else
+		return;
+}
+
+
+int main(){
+    cin >> n >> m;
+
+    for (int i = 0;i<n;i++)
+        for (int j = 0; j < m;j++)
+            cin >> g[i][j];
+
+    for (int i = 0; i < n;i++){
+        for (int j = 0; j < m;j++){
+            if(g[i][j] == 'A'){
+                vector<char> ans;
+                vector<vector<int>> vis(1002,vector<int>(1002,0));
+			vis[i][j] = 1;
+    	dfs(i + 1, j, ans, 'D',vis);
+   	 	dfs(i, j + 1, ans, 'R',vis);
+   	 	dfs(i, j - 1, ans, 'L',vis);
+    	dfs(i - 1, j, ans, 'U',vis);
+
+            }
+        }
+    }
+
+	
+	if(fin.size() == 0)
+	cout << "NO" << endl;
+	else
+	{
+		int mx = 1e9;
+		for(auto x: fin) {
+			mx = min(mx,x.first);
+		}
+		for(auto x: fin){
+			if(mx == x.first){
+				cout << "YES" << endl;
+				cout << mx << endl;
+				for(auto m : x.second) cout << m;
+				exit(0);
+			}
+		}
+	}
+	return 0;
+}

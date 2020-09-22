@@ -2,22 +2,29 @@
 using namespace std;
 using ll = long long int;
 
-ll sum(ll arr[],int n){
-    ll mx, mxsf;
-    mx = arr[0], mxsf = arr[0];
-    for (int i = 1; i < n;i++){
-        mxsf = max(arr[i], mxsf + arr[i]);
-        mx = max(mx, mxsf);
-    }
-    return mx;
-}
-
 int main(){
-    int n;
-    cin >> n;
-    ll arr[n];
+    int n, k;
+    cin >> n >> k;
+    vector<pair<int, int>> arr(n);
+
     for (int i = 0; i < n;i++){
-        cin >> arr[i];
+        int x;
+        cin >> x;
+        arr[i].first = x, arr[i].second = i + 1;
     }
-    cout << sum(arr, n);
+    sort(arr.begin(), arr.end());
+    int l = 0, r = n - 1;
+    while (l < r)
+    {
+        if (arr[l].first + arr[r].first == k){
+            cout << arr[l].second << " " << arr[r].second;
+            return 0;
+        }
+
+        if (arr[l].first + arr[r].first > k)
+            r--;
+            else
+                l++;
+    }
+    cout << "IMPOSSIBLE";
 }
