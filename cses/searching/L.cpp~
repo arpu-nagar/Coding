@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int n;
+	cin >>n;
+	deque<pair<int,int>> dq;
+	const int p = -1e9 -2;
+	dq.push_back({p, 0});
+	for(int i=0;i<n;i++){
+		int x;
+		cin >> x;
+		while((dq.back()).first >= x) dq.pop_back();
+		cout << dq.back().second << " ";
+		dq.push_back({x,i+1});
+	}
+	cout << endl;
+}
