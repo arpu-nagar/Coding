@@ -6,5 +6,4 @@ a.out
 *.cpp.swp
 .*.cpp.un.swp
 *.o
-*.cpp~
-.*.cpp.un~
+

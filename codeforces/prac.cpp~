@@ -17,11 +17,14 @@ typedef vector<string> vs;
 
 void solve()
 {
-	int n,k;
+	int n;
 	cin >> n;
-	vi a(n); for(auto &x : a) cin >> x;
-	vi pos(k); for(auto &x : pos) cin >> x;
-	
+	vi a(n);
+	for(auto &x : a) cin >> x;
+	sort(a.begin(),a.end());
+	reverse(a.begin(),a.end());
+	for(auto x: a) cout << x << " ";
+	cout << endl;
 }
 int main()
 {
