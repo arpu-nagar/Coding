@@ -1,23 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long int;
-int main(){
-    int n;
-    cin >> n;
-    int arr[n];
-    for (int i = 0; i < n;i++){
-        cin >> arr[i];
-    }
-    int x, y;
-    x = y = -1;
-    for (int i = n - 1; i >= 0;i--){
-        if(arr[i] != arr[0] && x == -1){
-            x = i;
-        }
 
-        if(arr[i] != arr[n-1] && i != n-1)
-            y = i;
+void test_case()
+{
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n);
+    vector<int> b(m);
+    for (auto &it : a)
+        cin >> it;
+    for (auto &it : b)
+        cin >> it;
+
+    for (int k = 1 << 9; k >= 0; k--)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            int c = 0;
+            for (int j = 0; j < m; j++)
+            {
+                if (((a[i] & b[j]) | k) == k)
+                {
+                    c++;
+                }
+            }
+            if (c == m)
+            {
+                cout << k << endl;
+                return;
+            }
+        }
     }
-        cout << max(x,n-y-1) << endl;
-    return 0;   
+}
+
+int main()
+{
+    int t;
+    t = 1;
+    while (t--)
+    {
+        test_case();
+    }
+
+    return 0;
 }

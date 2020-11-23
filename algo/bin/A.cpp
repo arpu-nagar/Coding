@@ -1,4 +1,4 @@
-/**
+idddddddddddddddddddddd/**
  *  Hi, I'm Arpan.
  *
 */
@@ -50,7 +50,6 @@ ll nCr(ll n, ll r) {
 void solve()
 {
     ll s,n;
-    cin >> s >> n;
     if(s == 1){
 		cout << 1 << endl;
 		return;
