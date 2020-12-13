@@ -1,9 +1,0 @@
-.class
-a.out
-.vscode
-*.exe
-*.cpp.un.swp
-*.cpp.swp
-.*.cpp.un.swp
-*.o
-
